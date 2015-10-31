@@ -1,0 +1,50 @@
+Configuration	Project_7(ADC-2)
+STM32CubeMX 	4.10.1
+Date	10/30/2015
+MCU	STM32F407VGTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN0	ADC1_IN0	PA0-WKUP
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+23	PA0-WKUP	ADC1_IN0	
+59	PD12	GPIO_Output	LED1
+60	PD13	GPIO_Output	LED2
+61	PD14	GPIO_Output	LED3
+62	PD15	GPIO_Output	LED4
+63	PC6	GPIO_Output	ExLED1
+64	PC7	GPIO_Output	ExLED2
+65	PC8	GPIO_Output	ExLED3
+66	PC9	GPIO_Output	ExLED4
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : Project_7(ADC-2)
+Project Folder : C:\Users\SLaYeR\Documents\stm32cube\Project_7(ADC-2)
+Toolchain / IDE : MDK-ARM V5
+Firmware Package Name and Version : STM32Cube FW_F4 V1.8.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy all used libraries into the project folder
+Generate peripheral initialization as a pair of '.c/.h' files per IP : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+
