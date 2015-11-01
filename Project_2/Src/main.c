@@ -33,29 +33,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void Delay(uint32_t time);
-/* USER CODE BEGIN PFP */
-/* Private function prototypes -----------------------------------------------*/
-
-/* USER CODE END PFP */
-
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 void Delay(uint32_t delaycycle)
 {
@@ -64,7 +44,6 @@ void Delay(uint32_t delaycycle)
 
 int main(void)
 {
-
 	uint8_t readButton,buffer=0;
 	
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -75,17 +54,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-
-	
 	
   while (1)
   {
 		readButton = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
 		
 		while(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0));
-		Delay(100000);
-		//HAL_Delay(100); //100ms
-		
+		//Delay(100000);
+		HAL_Delay(100); //100ms
 		buffer = buffer + readButton;
 		
 		if(buffer%2)
@@ -98,26 +74,8 @@ int main(void)
 		else
 		{
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_15,GPIO_PIN_RESET);
-		}
-		
-		/*
-		readButton = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
-		if(readButton)
-		{
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_15,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_15,GPIO_PIN_RESET);
-		}
-		*/
-		
+		}		
   }
-  /* USER CODE END 3 */
-
 }
 
 /** System Clock Configuration
@@ -167,7 +125,6 @@ void SystemClock_Config(void)
 */
 void MX_GPIO_Init(void)
 {
-
   GPIO_InitTypeDef GPIO_InitStruct;
 
   /* GPIO Ports Clock Enable */
@@ -187,12 +144,7 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 #ifdef USE_FULL_ASSERT
 
@@ -209,17 +161,8 @@ void assert_failed(uint8_t* file, uint32_t line)
   /* User can add his own implementation to report the file name and line number,
     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
-
 }
 
 #endif
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-*/ 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
